@@ -27,5 +27,8 @@
 		"gulp-scss": "^1.4.0",
 		"jsprim": "^2.0.0",
 		"which": "^1.3.0"
+	},
+	"dependencies": {
+		"gulp-html-prettify": "0.0.1"
 	}
 }

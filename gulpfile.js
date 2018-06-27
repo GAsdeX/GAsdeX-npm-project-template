@@ -8,6 +8,7 @@ var inject    = require('gulp-inject-string');
 var sass      = require('gulp-sass');
 var pug       = require('gulp-pug');
 var rename    = require('gulp-rename');
+var prettify  = require('gulp-html-prettify');
 var streamify = require('gulp-streamify');
 var uglify    = require('gulp-uglify');
 var gutil     = require('gulp-util');
@@ -130,6 +131,8 @@ gulp.task('pug-compile', function (callback) {
 			? inject.replace('//-?\\s*?weinre', '')
 			: gutil.noop())
 		.pipe(failsafePipe(pug(), callback))
+		.pipe(prettify({indent_char: ' ', indent_size: 2}))
+		
 		.pipe(gulp.dest(paths.pugOut));
 });
 gulp.task('markup', ['html-min', 'pug-compile']);
